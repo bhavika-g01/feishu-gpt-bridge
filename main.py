@@ -16,10 +16,11 @@ def read_feishu_sheet():
 
     response = requests.get(url, headers=headers)
 
-    try:
+    content_type = response.headers.get("Content-Type", "")
+    if "application/json" in content_type:
         return response.json()
-    except ValueError:
+    else:
         return JSONResponse(
             status_code=500,
-            content={"error": "Non-JSON response received", "raw": response.text}
+            content={"error": "Non-JSON response", "raw": response.text}
         )
