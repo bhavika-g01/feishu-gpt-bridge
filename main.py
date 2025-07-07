@@ -26,3 +26,7 @@ def read_feishu_sheet():
             status_code=500,
             content={"error": "Non-JSON response", "raw": response.text}
         )
+@app.get("/openapi.yaml", include_in_schema=False)
+def get_openapi_yaml():
+    filepath = os.path.join(os.path.dirname(file), "openapi.yaml")
+    return FileResponse(filepath, media_type="application/yaml")
