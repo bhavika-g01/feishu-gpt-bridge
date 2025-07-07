@@ -5,7 +5,7 @@ import requests
 app = FastAPI()
 
 TENANT_ACCESS_TOKEN = "t-g10477fL2IQWIESOEDPKVD46KGONNJ5SLSUCD243"
-SPREADSHEET_TOKEN = "QSMTsNDDEhvm00txBpycTG6ZnBh"
+SHEET_TOKEN = "QSMTsNDDEhvm00txBpycTG6ZnBh"
 
 @app.get("/read_feishu_sheet")
 def read_feishu_sheet():
