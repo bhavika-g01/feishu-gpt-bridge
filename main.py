@@ -3,6 +3,9 @@ from fastapi import FastAPI
 import requests
 from fastapi.responses import JSONResponse
 from fastapi.staticfiles import StaticFiles
+from fastapi import FastAPI
+from fastapi.responses import FileResponse
+import os
 
 app = FastAPI()
 app.mount("/.well-known", StaticFiles(directory=".", html=True), name="static")
