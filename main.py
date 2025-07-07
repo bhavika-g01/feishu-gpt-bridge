@@ -9,7 +9,7 @@ SPREADSHEET_TOKEN = "QSMTsNDDEhvm00txBpycTG6ZnBh"
 
 @app.get("/read_feishu_sheet")
 def read_feishu_sheet():
-    url = f"https://open.feishu.cn/open-apis/sheets/v2/spreadsheets/{SPREADSHEET_TOKEN}/values"
+    url = f"https://open.feishu.cn/open-apis/sheets/v2/spreadsheets/{SHEET_TOKEN}/values"
     headers = {
         "Authorization": f"Bearer {TENANT_ACCESS_TOKEN}"
     }
@@ -18,13 +18,8 @@ def read_feishu_sheet():
 
     try:
         return response.json()
-    except Exception as e:
+    except ValueError:
         return JSONResponse(
-            status_code=response.status_code,
-            content={
-                "error": "Failed to decode JSON",
-                "status_code": response.status_code,
-                "text": response.text[:500],  # limit for display
-                "exception": str(e)
-            }
+            status_code=500,
+            content={"error": "Non-JSON response received", "raw": response.text}
         )
