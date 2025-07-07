@@ -4,7 +4,7 @@ info:
   description: Access an entire Feishu spreadsheet using its token.
   version: "1.0.0"
 servers:
-  - url: https://your-app-name.onrender.com
+  - url: https://feishu-gpt-bridge.onrender.com
 paths:
   /read_feishu_sheet:
     get:
