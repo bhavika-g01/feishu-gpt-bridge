@@ -10,7 +10,7 @@ SHEET_TOKEN = "Y4ZbwOKXBiO86UkEPwhcRyxBn0g"
 
 @app.get("/read_feishu_sheet")
 def read_feishu_sheet():
-    url = f"https://open.feishu.cn/open-apis/sheets/v2/spreadsheets/{SHEET_TOKEN}/values?range=订单信息Order%20delivery%20information!A1:Z100"
+    url = f"https://open.feishu.cn/open-apis/sheets/v2/spreadsheets/{SHEET_TOKEN}/values?range=Order_delivery_information!A1:Z100"
     headers = {
         "Authorization": f"Bearer {TENANT_ACCESS_TOKEN}"
     }
