@@ -4,7 +4,7 @@ import requests
 from fastapi.responses import JSONResponse
 
 app = FastAPI()
-
+app.mount("/.well-known", StaticFiles(directory=".", html=True), name="static")
 TENANT_ACCESS_TOKEN = "t-g10477fL2IQWIESOEDPKVD46KGONNJ5SLSUCD243"
 SHEET_TOKEN = "Y4ZbwOKXBiO86UkEPwhcRyxBn0g"
 
