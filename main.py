@@ -13,6 +13,18 @@ def read_feishu_sheet():
     headers = {
         "Authorization": f"Bearer {TENANT_ACCESS_TOKEN}"
     }
-    response = requests.get(url, headers=headers)
-    return response.json()
 
+    response = requests.get(url, headers=headers)
+
+    try:
+        return response.json()
+    except Exception as e:
+        return JSONResponse(
+            status_code=response.status_code,
+            content={
+                "error": "Failed to decode JSON",
+                "status_code": response.status_code,
+                "text": response.text[:500],  # limit for display
+                "exception": str(e)
+            }
+        )
