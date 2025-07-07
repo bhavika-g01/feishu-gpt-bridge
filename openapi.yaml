@@ -29,16 +29,6 @@ paths:
                     type: array
                     items:
                       type: object
-  /read_feishu_doc:
-    get:
-      summary: Retrieve a Feishu Doc by ID
-      operationId: getFeishuDoc
-      responses:
-        "200":
-          description: Successfully retrieved doc content
-          content:
-            application/json:
-              schema: {}
   
         "400":
           description: Invalid request or missing parameters
