@@ -1,4 +1,4 @@
-openapi: 3.0.1
+openapi: 3.1.0
 info:
   title: Feishu Sheet Reader
   description: Access an entire Feishu spreadsheet using its token.
@@ -9,6 +9,7 @@ paths:
   /read_feishu_sheet:
     get:
       summary: Retrieve full Feishu spreadsheet data
+      operationId: getFeishuSheet
       parameters:
         - name: sheet_token
           in: query
