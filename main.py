@@ -31,5 +31,5 @@ def read_feishu_sheet():
         )
 @app.get("/openapi.yaml", include_in_schema=False)
 def get_openapi_yaml():
-    filepath = os.path.join(os.path.dirname(file), "openapi.yaml")
+    filepath = os.path.join(os.path.dirname(__file__), "openapi.yaml")
     return FileResponse(filepath, media_type="application/yaml")
