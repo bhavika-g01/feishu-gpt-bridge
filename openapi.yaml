@@ -1,0 +1,34 @@
+openapi: 3.0.1
+info:
+  title: Feishu Sheet Reader
+  description: Access an entire Feishu spreadsheet using its token.
+  version: "1.0.0"
+servers:
+  - url: https://your-app-name.onrender.com
+paths:
+  /read_feishu_sheet:
+    get:
+      summary: Retrieve full Feishu spreadsheet data
+      parameters:
+        - name: sheet_token
+          in: query
+          required: true
+          description: The token of the Feishu spreadsheet.
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Successfully retrieved spreadsheet data
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  data:
+                    type: array
+                    items:
+                      type: object
+        "400":
+          description: Invalid request or missing parameters
+        "500":
+          description: Internal server error
